@@ -34,9 +34,9 @@ function App() {
 			<View className='App'>
 				<Nav ref={navRef} />
 				<Galleries ref={galleriesRef} />
-				<About />
-				<FAQ />
-				<Calendly />
+				<About ref={aboutRef} />
+				<FAQ ref={faqRef} />
+				<Calendly ref={bookingRef} />
 			</View>
 		</RefsContext.Provider>
 	);

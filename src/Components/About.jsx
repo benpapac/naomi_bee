@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { View, Text } from 'react-native-web';
 import AboutStyles from '../Stylesheets/AboutStyles';
+import NavReturn from "./Nav/NavReturn";
 
 const About = forwardRef((props, ref) => {
     return (
@@ -8,6 +9,8 @@ const About = forwardRef((props, ref) => {
             <Text>
                 Hello from About.
             </Text>
+
+            <NavReturn />
         </View>
     )
 })

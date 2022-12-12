@@ -1,6 +1,8 @@
 import { useEffect, forwardRef, useContext } from 'react';
 import { View, Text, Pressable } from 'react-native-web';
 import RefsContext from '../../Utils/context';
+import NavReturn from '../Nav/NavReturn';
+import NavPressable from './NavPressable';
 
 
 const Nav = forwardRef((props, ref) => {
@@ -14,9 +16,10 @@ const Nav = forwardRef((props, ref) => {
                 Hello from Nav
             </Text>
 
-            <Pressable onPressOut={()=> refs.galleriesRef.current.scrollIntoView({behavior: 'smooth', block: 'center'})}>
-        <Text>Scroll to Galleries</Text>
-            </Pressable>
+            <NavPressable scrollToId={refs.galleriesRef} text='Scroll to Galleries' />
+            <NavPressable scrollToId={refs.aboutRef} text='Scroll to About' />
+            <NavPressable scrollToId={refs.bookingRef} text='Scroll to Booking' />
+            <NavPressable scrollToId={refs.faqRef} text='Scroll to faq' />
         </View>
     )
 });
