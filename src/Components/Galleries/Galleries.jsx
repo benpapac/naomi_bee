@@ -1,6 +1,8 @@
 import { forwardRef} from 'react';
 import { View, Text } from 'react-native-web';
 
+import Gallery from './Gallery';
+
 
 const Galleries = forwardRef((props, ref) => {
 
@@ -9,6 +11,8 @@ const Galleries = forwardRef((props, ref) => {
             <Text>
                 Hello from Galleries;
             </Text>
+
+            <Gallery />
         </View>
     )
 });
