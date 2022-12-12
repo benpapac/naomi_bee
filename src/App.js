@@ -1,25 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { useRef } from 'react';
+import { View } from 'react-native-web';
+
+import Galleries from './Components/Galleries/Galleries';
+import Nav from './Components/Nav/Nav';
+
+import RefsContext from './Utils/context';
+
+  function App() {
+		const navRef = useRef(null);
+		const galleriesRef = useRef(null);
+		const bookingRef = useRef(null);
+		const aboutRef = useRef(null);
+		const faqRef = useRef(null);
+
+		// I would love to refactor refs in a programmatic way.
+		// https://beta.reactjs.org/learn/manipulating-the-dom-with-refs#:~:text=DEEP-,DIVE,-How%20to%20manage
+
+		return (
+			<RefsContext.Provider value={{
+				navRef: navRef,
+				galleriesRef: galleriesRef,
+				bookingRef: bookingRef,
+				aboutRef: aboutRef,
+				faqRef: faqRef,
+			}}>
+				<View className='App'>
+					<Nav ref={navRef} />
+					<Galleries ref={galleriesRef} />
+				</View>
+			</RefsContext.Provider>
+		);
+	}
 
 export default App;
