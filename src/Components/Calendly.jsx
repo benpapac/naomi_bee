@@ -4,15 +4,26 @@ import CalendlyStyles from '../Stylesheets/CalendlyStyles';
 import NavReturn from './Nav/NavReturn';
 
 const Calendly = forwardRef((props, ref) => {
+    const URL = process.env.REACT_APP_CALENDLY_URL;
+
 
     return (
-        <View ref={ref} style={CalendlyStyles.container}>
-            <Text>
-            Hello from Calendly
-            </Text>
-            <NavReturn />
+        <View ref={ref}
+        className="calendly-inline-widget"
+        style={CalendlyStyles.container}
+        >
+        <NavReturn />
+            <iframe
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            title={"Naomi's Scheduling Page"}
+            src={URL}
+            ></iframe>
         </View>
     )
 });
 
 export default Calendly;
+
+        /* <InlineWidget url={URL} /> */

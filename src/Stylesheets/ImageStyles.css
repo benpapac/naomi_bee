@@ -1,0 +1,24 @@
+
+
+
+
+@keyframes expand { 
+    from {
+        flex-grow: 1;
+    }
+
+    to {
+        flex-grow: 2.5;
+    }
+    
+}
+@keyframes shrink {
+    from {
+        flex-grow: 2.5;
+    }
+
+    to {
+        flex-grow: 1;
+    }
+
+}

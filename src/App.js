@@ -4,6 +4,7 @@ import './App.css';
 import { useRef } from 'react';
 import { View } from 'react-native-web';
 
+import ErrorBoundary from './Utils/ErrorBoundary';
 import Galleries from './Components/Galleries/Galleries';
 import Nav from './Components/Nav/Nav';
 import About from './Components/About';
@@ -32,10 +33,20 @@ function App() {
 				faqRef: faqRef,
 			}}>
 			<View className='App'>
-				<Nav ref={navRef} />
-				<Galleries ref={galleriesRef} />
-				<About ref={aboutRef} />
-				<FAQ ref={faqRef} />
+				<ErrorBoundary>
+					<Nav ref={navRef} />
+				</ErrorBoundary>
+
+				<ErrorBoundary>
+					<Galleries ref={galleriesRef} />
+				</ErrorBoundary>
+				<ErrorBoundary>
+					<About ref={aboutRef} />
+				</ErrorBoundary>
+				<ErrorBoundary>
+					<FAQ ref={faqRef} />
+				</ErrorBoundary>
+
 				<Calendly ref={bookingRef} />
 			</View>
 		</RefsContext.Provider>
