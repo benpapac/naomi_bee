@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Animated, View, Pressable, Image } from 'react-native-web';
+import { View, Pressable, Image } from 'react-native-web';
 import GalleryStyles from "../../Stylesheets/GalleryStyles";
 
 import '../../Stylesheets/ImageStyles.css';
@@ -9,13 +9,7 @@ const Gallery = ({ keys }) => {
     const BEE_URL = process.env.REACT_APP_BEE_URL;
     const [imageStyles, setImageStyles] = useState({});
 
-    const expAnim = useRef( new Animated.Value(1)).current;
-    const shrinkAnim = useRef( new Animated.Value(5)).current;
-
-
-
     const imagesRef = useRef(null);
-
 
     const getMap = () => {
         if(!imagesRef.current) {
@@ -23,28 +17,64 @@ const Gallery = ({ keys }) => {
         }
          return imagesRef.current;
     }
-  
 
-   const expandById = (id) => {
+    const featureById = (idx) => {
+        const map = getMap();
+       const node = map.get(idx);
+        node.style.animation = 'feature 2s';
+        node.style['flex-grow'] = 15;
+
+        let newStyles = {...imageStyles};
+        newStyles[idx] = 'featured';
+        setImageStyles(newStyles);
+
+    }
+
+    const unfeatureById = (idx) => {
+         const map = getMap();
+       const node = map.get(idx);
+        node.style.animation = 'unfeature 2s';
+        node.style['flex-grow'] = 1;
+
+        let newStyles = {...imageStyles};
+        newStyles[idx] = 'shrunk';
+        setImageStyles(newStyles);
+    }
+
+    const toggleById = (idx) => {
+        console.log('toggling...');
+        if(imageStyles[idx] === 'expanded'){
+            shrinkById(idx); //side effects
+        } else if(imageStyles[idx] === 'featured'){
+            unfeatureById(idx);
+        } else if(imageStyles[idx] === 'shrunk'){
+            expandById(idx); //side effects
+        }
+        return imageStyles[idx];
+    }
+
+   const expandById = (idx) => {
        const map = getMap();
-       const node = map.get(id);
+       const node = map.get(idx);
         node.style.animation = 'expand 2s';
         node.style['flex-grow'] = 2.5;
 
-        let newStyles = imageStyles.map(style => style);
-        newStyles[id] = 'expanded';
+        let newStyles = {...imageStyles};
+
+        newStyles[idx] = 'expanded';
+        console.log(newStyles[idx]);
         setImageStyles(newStyles);
    }
 
-   const shrinkById = (id) => {
+   const shrinkById = (idx) => {
         const map = getMap();
-        const node = map.get(id);
+        const node = map.get(idx);
 
         node.style.animation = 'shrink 0.5s';
         node.style['flex-grow'] = 1;
 
-        let newStyles = imageStyles.map(style => style);
-        newStyles[id] = 'shrunk';
+        let newStyles = {...imageStyles};
+        newStyles[idx] = 'shrunk';
         setImageStyles(newStyles);
    }
 
@@ -52,12 +82,13 @@ const Gallery = ({ keys }) => {
 //    try connecting the ref's style to a css file.
 
     return (
-        <View style={GalleryStyles.gallery}>
+        <>
             {keys.map((key, idx) => {
                 return (
-                        <Pressable style={ {height: '16vw', minWidth: '3vw', flexGrow: '1', margin: '3vh 0'} }
-                        onPress={() => expandById(idx)}
-                            onMouseLeave={() => shrinkById(idx)}
+                        <Pressable 
+                            style={ {height: '80vh', minWidth: '3vw', flexGrow: '1', margin: '3vh 0'} }
+                            onPress={() => featureById(idx)}
+                            onMouseLeave={() => toggleById(idx)}
                             ref={(node) => {
                                 const map = getMap();
                                 if (node) {
@@ -68,16 +99,16 @@ const Gallery = ({ keys }) => {
                             }}
                             key={idx}
                         >
-                            <Image  source={{ uri:  `${BEE_URL}${key}`}} 
-                            
-                            style={{ minHeight: '100%', minWidth: '100%', objectFit: 'cover', verticalAlign: 'bottom'}}
 
-                            >
-                            </Image>
+                            <Image  
+                            source={{ uri:  `${BEE_URL}${key}`}} 
+                            style={{ height: '100%', width: '100%', objectFit: 'cover', verticalAlign: 'bottom'}}
+                            />
+                            
                         </Pressable>
                 )
             })}
-        </View>
+        </>
     )
 }
 

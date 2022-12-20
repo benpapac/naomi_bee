@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState} from 'react';
+import { forwardRef, useContext, useEffect, useState} from 'react';
 import { View, Pressable, Image, Text } from 'react-native-web';
 
 
@@ -9,14 +9,12 @@ import GalleryStyles from '../../Stylesheets/GalleryStyles';
 import { S3Client, ListObjectsCommand } from '@aws-sdk/client-s3';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-identity';
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
+import Context from '../../Utils/context.js';
 
 
 const Galleries = forwardRef((props, ref) => {
-    const URL = process.env.REACT_APP_AWS_PATH;
-    const BEE_URL = process.env.REACT_APP_BEE_URL;
-
     const [keys, setKeys] = useState({});
-    const [prefix, setPrefix] = useState('');
+    const { prefix, setPrefix } = useContext(Context);
 
     const REGION = process.env.REACT_APP_REGION;
     const ID = process.env.REACT_APP_AWS_CRED;
@@ -57,28 +55,31 @@ const Galleries = forwardRef((props, ref) => {
     },[prefix]);
 
     return (
-        <View ref={ref} style={{height: '100vh', width: '100vw'}}>
-            <Text>
-                Hello from Galleries.
-            </Text>
-            <Pressable onPress={()=> setPrefix('muertos/')}> 
-                <Text>
-                Dia de Los Muertos
-                </Text>
-                 </Pressable>
-            <Pressable onPress={()=> setPrefix('birthdays/')}>
-                <Text>
-                    birthdays
-                </Text>
-            </Pressable>
-            <Pressable onPress={()=> setPrefix('adults/')}>
-                <Text>
-                    Adults too!
-                </Text>
-            </Pressable>
+        <View ref={ref} style={GalleryStyles.container}>
 
-            {keys[prefix] ? <Gallery keys={keys[prefix]}/> : null}
-            <NavReturn />
+            <View style={GalleryStyles.buttonsContainer}>
+		
+                <Pressable onPress={()=> setPrefix('muertos/')} style={{backgroundColor: 'darkgray', padding: '0.3em'}}> 
+                    <Text>
+                    Dia de Los Muertos
+                    </Text>
+                    </Pressable>
+                <Pressable onPress={()=> setPrefix('birthdays/')} style={{backgroundColor: 'darkgray', padding: '0.3em'}}>
+                    <Text>
+                        Birthdays
+                    </Text>
+                </Pressable>
+                <Pressable onPress={()=> setPrefix('adults/')} style={{backgroundColor: 'darkgray', padding: '0.3em'}}>
+                    <Text>
+                        Adults too!
+                    </Text>
+                </Pressable>
+            </View>
+
+            <View style={GalleryStyles.gallery}>
+                {keys[prefix] ? <Gallery keys={keys[prefix]}/> : null}
+            </View>
+
         </View>
     )
 });
