@@ -59,17 +59,17 @@ const Galleries = forwardRef((props, ref) => {
 
             <View style={GalleryStyles.buttonsContainer}>
 		
-                <Pressable onPress={()=> setPrefix('muertos/')} style={{backgroundColor: 'darkgray', padding: '0.3em'}}> 
+                <Pressable onPress={()=> setPrefix('muertos/')} > 
                     <Text>
                     Dia de Los Muertos
                     </Text>
                     </Pressable>
-                <Pressable onPress={()=> setPrefix('birthdays/')} style={{backgroundColor: 'darkgray', padding: '0.3em'}}>
+                <Pressable onPress={()=> setPrefix('birthdays/')} >
                     <Text>
                         Birthdays
                     </Text>
                 </Pressable>
-                <Pressable onPress={()=> setPrefix('adults/')} style={{backgroundColor: 'darkgray', padding: '0.3em'}}>
+                <Pressable onPress={()=> setPrefix('adults/')} >
                     <Text>
                         Adults too!
                     </Text>

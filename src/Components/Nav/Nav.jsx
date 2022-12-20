@@ -17,14 +17,14 @@ const Nav = forwardRef((props, ref) => {
 
     return (
         <View ref={ref} style={NavStyles.container}>
+            <NavPressable scrollToId={refs.aboutRef} text='About' url={{uri: process.env.REACT_APP_HOME}}/>
             <NavPressable scrollToId={refs.galleriesRef} text='muertos/' url={{uri: BEE_URL+NAV_SKULL}} />
-            <NavPressable scrollToId={refs.aboutRef} text='Scroll to About' />
 
             <NavPressable scrollToId={refs.galleriesRef} text='adults/' url={{uri: BEE_URL+NAV_BUTTERFLY}} />
-            <NavPressable scrollToId={refs.bookingRef} text='Scroll to Booking' />
+            <NavPressable scrollToId={refs.bookingRef} text='Booking' url={{uri: process.env.REACT_APP_BOOKING}}/>
             
             <NavPressable scrollToId={refs.galleriesRef} text='birthdays/' url={{uri: BEE_URL+NAV_KID}} />
-            <NavPressable scrollToId={refs.faqRef} text='Scroll to faq' />
+            <NavPressable scrollToId={refs.faqRef} text='faq' url={{uri: process.env.REACT_APP_FAQ}}/>
         </View>
     )
 });

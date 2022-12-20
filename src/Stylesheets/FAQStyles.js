@@ -9,13 +9,18 @@ const FAQStyles = {
 	},
 	itemView: {
 		flex: 1,
+		backgroundColor: 'white',
 	},
 	itemQ: {
 		flex: 1,
 		fontSize: '20px',
 		color: 'darkgray',
 	},
-	itemA: {
+	false: {
+		display: 'none',
+	},
+
+	true: {
 		flex: 1,
 		fontSize: '18px',
 	},

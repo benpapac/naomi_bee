@@ -1,12 +1,18 @@
 import { useContext } from 'react';
-import NavPressable from './NavPressable';
 import Context from '../../Utils/context';
+import NavStyles from '../../Stylesheets/NavStyles';
+import { Pressable, Image } from 'react-native-web';
 
 
 const NavReturn = () => {
+    const MENU = process.env.REACT_APP_HAMBURGER;
     const { navRef } = useContext(Context);
+
     return (
-        <NavPressable scrollToId={navRef} text='Return to Nav' />
+        <Pressable style={NavStyles.navReturn}
+         onPressOut={() => navRef.current.scrollIntoView({behavior: 'smooth', block: 'center'})}>
+                <Image source={MENU} alt={'return to Nav'} style={NavStyles.navReturnImage} />
+            </Pressable>
     )
 }
 

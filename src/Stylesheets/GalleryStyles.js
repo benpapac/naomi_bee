@@ -1,26 +1,22 @@
 const GalleryStyles = {
-
 	container: {
 		display: 'flex',
-		flexDirection: 'row',
+		flexDirection: 'column',
 		height: '100vh',
-		width: '100vw'
-
+		width: '100vw',
 	},
 	buttonsContainer: {
-		width: '5vw',
-		height: '100vh',
+		height: 'fit-content',
 		display: 'flex',
-		flexDirection: 'column',
+		flexDirection: 'row',
 		justifyContent: 'space-around',
-		alignItems: 'center',
+		alignItems: 'space-around',
 		textAlign: 'center',
 	},
 	gallery: {
 		alignSelf: 'center',
-		width: '90vw',
+		width: '85vw',
 		height: '85vh',
-		marginLeft: '4vw',
 		display: 'flex',
 		flexDirection: 'row',
 		flexWrap: 'wrap',

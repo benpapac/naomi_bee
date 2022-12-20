@@ -1,7 +1,20 @@
 const NavStyles = {
+	navReturn: {
+		position: 'fixed',
+		width: '6vw',
+		height: 'fit-content',
+		left: '95vw',
+		top: '5vh',
+		backgroundColor: 'none',
+	},
+	navReturnImage: {
+		width: '5vw',
+		height: '6vh',
+	},
 	container: {
+		alignSelf: 'center',
 		height: '100vh',
-		width: '100vw',
+		width: '90vw',
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'center',
@@ -9,9 +22,9 @@ const NavStyles = {
 	},
 	pressable: {
 		flex: 1,
-		width: '18vw',
-		height: '18vw',
-		backgroundColor: '#ffda3d',
+		width: '15vw',
+		height: '15vw',
+		// backgroundColor: '#ffda3d',
 		textAlign: 'center',
 		alignItems: 'center',
 		justifyContent: 'center',

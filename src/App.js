@@ -7,6 +7,7 @@ import { View } from 'react-native-web';
 import ErrorBoundary from './Utils/ErrorBoundary';
 import Galleries from './Components/Galleries/Galleries';
 import Nav from './Components/Nav/Nav';
+import NavReturn from './Components/Nav/NavReturn';
 import About from './Components/About';
 import FAQ from './Components/FAQ';
 import Calendly from './Components/Calendly';
@@ -38,6 +39,7 @@ function App() {
 				setPrefix: setPrefix,
 			}}>
 			<View className='App' style={AppStyles.container}>
+				<NavReturn />
 				<ErrorBoundary>
 					<Nav ref={navRef} />
 				</ErrorBoundary>
