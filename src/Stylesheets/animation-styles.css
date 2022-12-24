@@ -1,0 +1,130 @@
+
+
+@keyframes vibrate {
+    from {
+        transform: rotateZ('0deg');
+    }
+
+    33% {
+        transform: rotateZ('25deg');
+    }
+
+    66% {
+        transform: rotateZ('-25deg');
+    }
+
+    to {
+        transform: rotateZ('0deg');
+    }
+    
+}
+
+
+@keyframes slide-up {
+    from {
+        transform: translateY(-20%);
+    } 
+    to {
+        transform: translateY(0);
+    }
+    
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(0);
+        display: 'block'
+    }
+
+    to {
+        transform: translateY(20%);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate();
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(0);
+    }
+     to {
+        transform: translateX(30%);
+     }
+}
+
+@keyframes orbit {
+    from {
+        transform: translateY(0);
+        transform: translateX(0);
+        display: 'block'
+    }
+
+    to {
+        transform: translateX(100%);
+        transform: translateY(50%);
+    }
+}
+
+@keyframes feature {
+    from {
+        z-index: 1;
+        scale: 1;
+    }
+
+    to {
+        /* position: absolute; */
+        z-index: 1;
+        align-self: start;
+        justify-self: center;
+        scale: 2;
+    }
+
+}
+@keyframes unfeature {
+    from {
+        /* position: absolute; */
+        align-self: start;
+            justify-self: center;
+        z-index: 1;
+        scale: 2;
+    }
+
+    to {
+        /* position: relative; */
+        z-index: 0;
+        scale: 1;
+    }
+
+}
+
+@keyframes expand { 
+    from {
+        scale: 1;
+        z-index: 1;
+    }
+
+    to {
+        scale: 1.5;
+        z-index: 1;
+    }
+    
+}
+@keyframes shrink {
+    from {
+        scale: 1.5;
+        z-index: 1;
+    }
+
+    to {
+        scale: 1;
+        z-index: 0;
+    }
+
+}

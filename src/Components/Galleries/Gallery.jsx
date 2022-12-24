@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { View, Pressable, Image } from 'react-native-web';
 import GalleryStyles from "../../Stylesheets/GalleryStyles";
 
-import '../../Stylesheets/ImageStyles.css';
+import '../../Stylesheets/animation-styles.css';
 
 
 const Gallery = ({ keys }) => {
@@ -22,7 +22,12 @@ const Gallery = ({ keys }) => {
         const map = getMap();
        const node = map.get(idx);
         node.style.animation = 'feature 2s';
-        node.style['flex-grow'] = 15;
+        node.style['scale'] = 2;
+        node.style.zIndex = 1;
+
+        node.style.justifySelf = 'center';
+        node.style.alignSelf = 'start';
+
 
         let newStyles = {...imageStyles};
         newStyles[idx] = 'featured';
@@ -34,7 +39,10 @@ const Gallery = ({ keys }) => {
          const map = getMap();
        const node = map.get(idx);
         node.style.animation = 'unfeature 2s';
-        node.style['flex-grow'] = 1;
+        node.style.scale = 1; 
+        node.style.zIndex = 0;
+        // node.style.position = 'relative';
+        
 
         let newStyles = {...imageStyles};
         newStyles[idx] = 'shrunk';
@@ -42,13 +50,17 @@ const Gallery = ({ keys }) => {
     }
 
     const toggleById = (idx) => {
-        console.log('toggling...');
-        if(imageStyles[idx] === 'expanded'){
-            shrinkById(idx); //side effects
-        } else if(imageStyles[idx] === 'featured'){
+        // if(imageStyles[idx] === 'expanded'){
+        //     shrinkById(idx); //side effects
+        // } else
+         if(imageStyles[idx] === 'featured'){
             unfeatureById(idx);
-        } else if(imageStyles[idx] === 'shrunk'){
-            expandById(idx); //side effects
+        }
+        //  else if(imageStyles[idx] === 'shrunk'){
+        //     expandById(idx); //side effects
+        // }
+         else {
+            featureById(idx);
         }
         return imageStyles[idx];
     }
@@ -57,7 +69,7 @@ const Gallery = ({ keys }) => {
        const map = getMap();
        const node = map.get(idx);
         node.style.animation = 'expand 2s';
-        node.style['flex-grow'] = 2.5;
+        node.style['scale'] = 1.5;
 
         let newStyles = {...imageStyles};
 
@@ -71,7 +83,7 @@ const Gallery = ({ keys }) => {
         const node = map.get(idx);
 
         node.style.animation = 'shrink 0.5s';
-        node.style['flex-grow'] = 1;
+        node.style['scale'] = 1;
 
         let newStyles = {...imageStyles};
         newStyles[idx] = 'shrunk';
@@ -86,9 +98,9 @@ const Gallery = ({ keys }) => {
             {keys.map((key, idx) => {
                 return (
                         <Pressable 
-                            style={ {height: '80vh', minWidth: '3vw', flexGrow: '1', margin: '3vh 0'} }
-                            onPress={() => featureById(idx)}
-                            onMouseLeave={() => toggleById(idx)}
+                            style={ { height: '20%', width: '20%', flexGrow: '1', flexShrink: '3', margin: '3vh 0', border: 'solid 1px white'} }
+                            onPress={() => toggleById(idx)}
+                            // onMouseLeave={() => toggleById(idx)}
                             ref={(node) => {
                                 const map = getMap();
                                 if (node) {

@@ -21,11 +21,13 @@ const GalleryStyles = {
 		flexDirection: 'row',
 		flexWrap: 'wrap',
 		alignItems: 'center',
-		alignContent: 'start',
+		alignContent: 'center',
 
 		backgroundColor: 'gray',
 		borderRadius: '3%',
 		padding: '1em',
+
+		overflow: 'hidden',
 	},
 };
 

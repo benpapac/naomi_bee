@@ -1,4 +1,4 @@
 import { createContext } from 'react';
 
-const RefsContext = createContext(null);
-export default RefsContext;
+const Context = createContext(null);
+export default Context;

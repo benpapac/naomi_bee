@@ -2,7 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 
 import { useRef, useState } from 'react';
-import { View } from 'react-native-web';
+import { View, Image } from 'react-native-web';
+
+import '/node_modules/react-grid-layout/css/styles.css';
+import '/node_modules/react-resizable/css/styles.css';
 
 import ErrorBoundary from './Utils/ErrorBoundary';
 import Galleries from './Components/Galleries/Galleries';
@@ -14,6 +17,8 @@ import Calendly from './Components/Calendly';
 
 import Context from './Utils/context';
 import AppStyles from './Stylesheets/AppStyles';
+import TestNav from './Components/Nav/TestNav';
+import './Stylesheets/animation-styles.css';
 
 function App() {
 	const navRef = useRef(null);
@@ -42,6 +47,7 @@ function App() {
 				<NavReturn />
 				<ErrorBoundary>
 					<Nav ref={navRef} />
+					{/* <TestNav /> */}
 				</ErrorBoundary>
 
 				<ErrorBoundary>

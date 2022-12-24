@@ -1,4 +1,4 @@
-import { forwardRef, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { View, Pressable, Image } from 'react-native-web';
 import NavStyles from '../../Stylesheets/NavStyles';
 
@@ -8,7 +8,7 @@ import { S3Client, ListObjectsCommand } from '@aws-sdk/client-s3';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-identity';
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 
-const TestNav = forwardRef((props, ref) => {
+const TestNav = () => {
     const BEE_URL = process.env.REACT_APP_BEE_URL;
       const REGION = process.env.REACT_APP_REGION;
     const ID = process.env.REACT_APP_AWS_CRED;
@@ -70,7 +70,7 @@ const TestNav = forwardRef((props, ref) => {
 
 
     return (
-        <View ref={ref} style={NavStyles.container}>
+        <View style={NavStyles.container}>
             < View style={NavStyles.gallery}>
 
                 {keys ? keys.map((key, idx) => {
@@ -81,6 +81,6 @@ const TestNav = forwardRef((props, ref) => {
             </View>
         </View>
     );
-});
+};
 
 export default TestNav;
