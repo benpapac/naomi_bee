@@ -10,11 +10,14 @@ import { S3Client, ListObjectsCommand } from '@aws-sdk/client-s3';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-identity';
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 import Context from '../../Utils/context.js';
+import ImageStyles from '../../Stylesheets/ImageStyles';
 
 
 const Galleries = forwardRef((props, ref) => {
+    const BEE_URL = process.env.REACT_APP_BEE_URL;
     const [keys, setKeys] = useState({});
     const { prefix, setPrefix } = useContext(Context);
+    const [centerImage, setCenterImage] = useState('');
 
     const REGION = process.env.REACT_APP_REGION;
     const ID = process.env.REACT_APP_AWS_CRED;
@@ -36,6 +39,7 @@ const Galleries = forwardRef((props, ref) => {
                 return [...accum, image.Key];
             },[]);
             setKeys({...keys, [prefix]: array.slice(1)});
+            setCenterImage(BEE_URL+array[Math.floor(array.length/2)]);
         } catch (error) {
             console.error(error);
         }
@@ -46,6 +50,7 @@ const Galleries = forwardRef((props, ref) => {
     if(prefix){
         if(keys[prefix]){
             console.log('already gotten!')
+            setCenterImage(BEE_URL+keys[prefix][Math.floor(keys[prefix].length/2)]);
              return;
         } else {
             console.log('getting keys...');
@@ -59,26 +64,20 @@ const Galleries = forwardRef((props, ref) => {
 
             <View style={GalleryStyles.buttonsContainer}>
 		
-                <Pressable onPress={()=> setPrefix('muertos/')} > 
-                    <Text>
+                <Pressable onPress={()=> setPrefix('muertos/')} style={GalleryStyles.button}> 
                     Dia de Los Muertos
-                    </Text>
                     </Pressable>
-                <Pressable onPress={()=> setPrefix('birthdays/')} >
-                    <Text>
+                <Pressable onPress={()=> setPrefix('birthdays/')} style={GalleryStyles.button}>
                         Birthdays
-                    </Text>
                 </Pressable>
-                <Pressable onPress={()=> setPrefix('adults/')} >
-                    <Text>
+                <Pressable onPress={()=> setPrefix('adults/')} style={GalleryStyles.button}>
                         Adults too!
-                    </Text>
                 </Pressable>
             </View>
 
-            <View style={GalleryStyles.gallery}>
-                {keys[prefix] ? <Gallery keys={keys[prefix]}/> : null}
-            </View>
+            <Image source={centerImage} style={ImageStyles.centerImage} />
+
+            {keys[prefix] ? <Gallery keys={keys[prefix]} setCenterImage={setCenterImage} /> : null}
 
         </View>
     )

@@ -1,36 +1,24 @@
 let baseDim = window.innerWidth < window.innerHeight ? 'vw' : 'vh';
 let imageWidth = window.innerWidth < window.innerHeight ? '100%' : '90%';
-let imageHeight = window.innerWidth < window.innerHeight ? '90%' : '100%';
 
 const NavStyles = {
 	container: {
-		height: '100vh',
+		height: '10vh',
 		width: '100vw', // the number of columns you want to devide the screen into
 		marginHorizontal: 'auto',
 
 		display: 'flex',
 		flexDirection: 'row',
 		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'space-around',
 
 		// animation: '3s alternate rotate',
 	},
 
-	gallery: {
-		height: '50vw',
-		alignSelf: 'center',
-		width: '50vw',
-		display: 'flex',
-		flexWrap: 'wrap',
-		flexDirection: 'row',
-
-		alignItems: 'center',
-		alignContent: 'center',
-	},
 	navReturn: {
 		position: 'fixed',
-		width: '12vw',
-		height: '12vw',
+		width: '6vw',
+		height: '6vh',
 		left: '84vw',
 		top: '5vh',
 
@@ -46,25 +34,6 @@ const NavStyles = {
 
 	hiddenImage: {
 		display: 'none',
-	},
-	visibleImageLeft: {
-		alignSelf: 'start',
-		minWidth: '20%',
-		height: '100%',
-		// backgroundColor: '#ffda3d',
-		textAlign: 'center',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-
-	visibleImageRight: {
-		alignSelf: 'end',
-		minWidth: '20%',
-		height: '100%',
-		// backgroundColor: '#ffda3d',
-		textAlign: 'center',
-		alignItems: 'center',
-		justifyContent: 'center',
 	},
 
 	navPressable: {

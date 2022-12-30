@@ -1,0 +1,10 @@
+    .contact-form {
+        height: 80vh;
+        width: 95vw;
+        display: flex;
+        flex-direction: column;
+        background-color: gray;
+        padding: 1em;
+        justify-content: space-around;
+        align-items: center;
+    }

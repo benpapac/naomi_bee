@@ -1,0 +1,29 @@
+
+@keyframes grow {
+    from {
+        height: 16px;
+    }
+    to {
+        height: fit-content;
+    }
+}
+
+@keyframes slidedown {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+     to {
+        transform: translateY(0);
+        opacity: 1;
+     }
+}
+
+@keyframes slideup {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}

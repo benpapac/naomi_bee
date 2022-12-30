@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useState } from 'react';
 import { View, FlatList, Pressable, Text } from'react-native-web';
 import FAQStyles from '../Stylesheets/FAQStyles';
+import '../Stylesheets/faq-animations.css';
 import NavReturn from './Nav/NavReturn';
 
 
@@ -15,12 +16,16 @@ const Item = ({id, question, answer, answerDisplays, setAnswerDisplays}) => {
         setDisplayPrompt(displayPrompt === 'more' ? 'less' : 'more');
     }
 
+    const modulus = id % 2 ? 'odd' : 'even';
+
         return (
-        <View style={FAQStyles.itemView}>
+        <View style={{...FAQStyles[modulus],...FAQStyles.itemView}}>
             <Pressable onPress={toggleDisplay}>
             <Text style={FAQStyles.itemQ}>{question} {displayPrompt}</Text>
             </Pressable>
+            <View style={FAQStyles.itemA}>
             <Text style={display}>{answer}</Text>
+            </View>
         </View>
         )
     }
@@ -28,8 +33,8 @@ const Item = ({id, question, answer, answerDisplays, setAnswerDisplays}) => {
 const FAQ = forwardRef((props, ref) => {
     const DATA = [
         {id: 0, question: 'How did she do it?', answer: 'No one knows! It\' a mystery, and she\'ll never tell.'},
-        {id: 1, question: 'Does she teach classes?', answer: 'Yes, she could teach you. But she\'d have to charge.'},
-        {id: 2, question: 'How do I schedule a burlesque routine?', answer: 'Just press the Nav button, then choose \'Booking,\' from the menu options.'},
+        {id: 1, question: 'How do I schedule a burlesque routine?', answer: 'Just press the Nav button, then choose \'Booking,\' from the menu options. I like to add a bunch of text to the end of my answers, just to see if you read to the end. If you did, use the contact form to send me the exact word, \'buzzzzzbzzbuttzzzz\' and you will get a free burlesque routine!'},
+        {id: 2, question: 'Does she teach classes?', answer: 'Yes, she could teach you. But she\'d have to charge.'},
     ]
 
     const renderItem = ({ item }) => {

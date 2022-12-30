@@ -12,7 +12,6 @@ const Calendly = forwardRef((props, ref) => {
         className="calendly-inline-widget"
         style={CalendlyStyles.container}
         >
-        <NavReturn />
             <iframe
             width="100%"
             height="100%"

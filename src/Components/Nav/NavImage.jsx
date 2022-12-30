@@ -4,8 +4,9 @@ import Context from '../../Utils/context';
 
 const NavImage = ({ uri, prefix, refId }) => {
     const { setPrefix, galleriesRef } = useContext(Context);
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+
+    const styles = ['smallRight', 'smallLeft', 'tallRight', 'tallLeft','shortRight','shortLeft'];
+    const [clicked, setClicked] = useState(false);
 
     const context = useContext(Context);
 
@@ -23,7 +24,7 @@ const NavImage = ({ uri, prefix, refId }) => {
 
 
     let pressableStyle = 
-        { flexGrow: '1', margin: '3vh 0', border: 'solid 1px white',  height: '20%', width: '20%' }
+        { flexGrow: '1', margin: '3vh 0', border: 'solid 1px white',  height: '33%', width: '20%' }
 
     return (
         <Pressable 
