@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import { View, Text } from 'react-native-web';
 import CalendlyStyles from '../Stylesheets/CalendlyStyles';
-import NavReturn from './Nav/NavReturn';
 
 const Calendly = forwardRef((props, ref) => {
     const URL = process.env.REACT_APP_CALENDLY_URL;

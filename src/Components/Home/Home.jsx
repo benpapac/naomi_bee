@@ -48,7 +48,6 @@ const Home = forwardRef((props, ref) => {
 
     return (
         <View style={HomeStyles.container}>
-
             {keys ? <HomeGallery keys={keys[prefix]} />  : <h1>Loading...</h1> } 
         </View>
     );

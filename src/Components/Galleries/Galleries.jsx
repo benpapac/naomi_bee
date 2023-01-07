@@ -3,7 +3,7 @@ import { View, Pressable, Image, Text } from 'react-native-web';
 
 
 import Gallery from './Gallery';
-import NavReturn from '../Nav/NavReturn';
+
 import GalleryStyles from '../../Stylesheets/GalleryStyles';
 
 import { S3Client, ListObjectsCommand } from '@aws-sdk/client-s3';
@@ -47,6 +47,10 @@ const Galleries = forwardRef((props, ref) => {
 
 
     useEffect(()=>{
+
+        if(!centerImage){
+            setCenterImage(BEE_URL+process.env.REACT_APP_KID);
+        }
     if(prefix){
         if(keys[prefix]){
             console.log('already gotten!')
@@ -60,8 +64,8 @@ const Galleries = forwardRef((props, ref) => {
     },[prefix]);
 
     return (
+        <>
         <View ref={ref} style={GalleryStyles.container}>
-
             <View style={GalleryStyles.buttonsContainer}>
 		
                 <Pressable onPress={()=> setPrefix('muertos/')} style={GalleryStyles.button}> 
@@ -74,12 +78,16 @@ const Galleries = forwardRef((props, ref) => {
                         Adults too!
                 </Pressable>
             </View>
+        
 
-            <Image source={centerImage} style={ImageStyles.centerImage} />
+        <View style={GalleryStyles.centerImageView}>
+            <Image source={centerImage} style={GalleryStyles.centerImage} />
+        </View>
 
             {keys[prefix] ? <Gallery keys={keys[prefix]} setCenterImage={setCenterImage} /> : null}
 
         </View>
+        </>
     )
 });
 

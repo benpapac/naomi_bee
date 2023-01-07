@@ -2,29 +2,69 @@ let baseDim = window.innerWidth < window.innerHeight ? 'vw' : 'vh';
 let imageWidth = window.innerWidth < window.innerHeight ? '100%' : '90%';
 
 const NavStyles = {
-	container: {
-		height: '10vh',
-		width: '100vw', // the number of columns you want to devide the screen into
-		marginHorizontal: 'auto',
+	hiddenToggler: {
+		zIndex: 1,
+		position: 'fixed',
+		width: '64px',
+		height: '64px',
+		left: '94vw',
+		top: '5vh',
 
-		display: 'flex',
-		flexDirection: 'row',
+		animation: 'slideout 1s',
+		transform: 'translateX(200%)',
+	},
+
+	hiddenContainer: {
+		zIndex: 1,
+		position: 'fixed',
+		paddingVertical: '5vh',
+
+		top: 0,
+		height: '100vh',
+		width: '100vw',
 		alignItems: 'center',
 		justifyContent: 'space-around',
 
-		// animation: '3s alternate rotate',
+		animation: 'slideout 2s',
+		transform: 'translateX(100%)',
+		backgroundColor: '#F2AA4F',
 	},
 
-	navReturn: {
+	container: {
+		zIndex: 1,
 		position: 'fixed',
-		width: '6vw',
-		height: '6vh',
-		left: '84vw',
+		top: 0,
+		height: '100vh',
+		width: '100vw',
+		marginHorizontal: 'auto',
+
+		alignItems: 'center',
+		justifyContent: 'space-around',
+		backgroundColor: '#F2AA4F',
+		paddingVertical: '5vh',
+
+		animation: 'slidein 2s',
+	},
+
+	link: {
+		textDecoration: 'none',
+		fontSize: '16px',
+		fontWeight: '500',
+		color: 'black',
+	},
+
+	navToggler: {
+		zIndex: 1,
+		position: 'fixed',
+		width: '64px',
+		height: '64px',
+		left: '94vw',
 		top: '5vh',
+
+		animation: 'slidein 2s',
 
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: 'white',
 		borderRadius: '100%',
 	},
 	navReturnImage: {

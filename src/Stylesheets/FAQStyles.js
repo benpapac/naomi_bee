@@ -1,11 +1,13 @@
 const FAQStyles = {
 	container: {
-		height: '90vh',
+		height: '100vh',
 		width: '100vw',
 		padding: '1em',
+		paddingTop: '15vh',
 		flex: 1,
 	},
 	title: {
+		height: '10vh',
 		fontSize: '24px',
 		alignSelf: 'center',
 	},
@@ -15,8 +17,8 @@ const FAQStyles = {
 		padding: '0.3em',
 	},
 
-	odd: {backgroundColor: 'gray'},
-	even: {backgroundColor: 'white'},
+	odd: { backgroundColor: 'gray' },
+	even: { backgroundColor: 'white' },
 	itemQ: {
 		flex: 1,
 		fontSize: '20px',

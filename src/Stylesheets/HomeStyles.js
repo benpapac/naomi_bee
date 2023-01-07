@@ -6,15 +6,12 @@ const HomeStyles = {
 		marginHorizontal: 'auto',
 
 		display: 'flex',
-		flexDirection: 'row',
-		flexWrap: 'wrap',
 		alignItems: 'center',
 		justifyContent: 'space-around',
 
 		// animation: '3s alternate rotate',
 	},
 	gallery: {
-		marginTop: '40vh',
 		alignSelf: 'center',
 		height: '50vh',
 		width: '50vw',
@@ -25,9 +22,8 @@ const HomeStyles = {
 	},
 	pressable: {
 		aspectRatio: 1.33,
-		width: '20vw',
-		backgroundColor: 'blue',
-		border: '1px solid black',
+		width: '20%',
+		margin: '2em',
 	},
 	basicImage: { flex: 1, height: '100%', width: '100%' },
 };

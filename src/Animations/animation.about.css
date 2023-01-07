@@ -1,13 +1,12 @@
-
-
 @keyframes slide-up {
     from {
         transform: translateY(-20%);
-    } 
+    }
+
     to {
         transform: translateY(0);
     }
-    
+
 }
 
 @keyframes slide-down {
@@ -21,37 +20,28 @@
     }
 }
 
-
-@keyframes slide-left {
+@keyframes slidein {
     from {
+        transform: translateX(200%);
+    }
+
+    60% {
+        transform: translateX(-10%);
+    }
+
+    to {
         transform: translateX(0);
     }
-     to {
-        transform: translateX(30%);
-     }
 }
 
-@keyframes expand { 
+@keyframes slideout {
     from {
-        scale: 1;
-        z-index: 1;
+        transform: translateX(0);
+        display: 'block';
     }
 
     to {
-        scale: 1.25;
-        z-index: 1;
+        transform: translateX(200%);
+        display: none;
     }
-    
-}
-@keyframes shrink {
-    from {
-        scale: 1.25;
-        z-index: 1;
-    }
-
-    to {
-        scale: 1;
-        z-index: 0;
-    }
-
 }

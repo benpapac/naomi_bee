@@ -1,8 +1,7 @@
 import { forwardRef, useEffect, useState } from 'react';
 import { View, FlatList, Pressable, Text } from'react-native-web';
 import FAQStyles from '../Stylesheets/FAQStyles';
-import '../Stylesheets/faq-animations.css';
-import NavReturn from './Nav/NavReturn';
+import '../Animations/faq-animations.css';
 
 
 const Item = ({id, question, answer, answerDisplays, setAnswerDisplays}) => {
@@ -60,7 +59,6 @@ const FAQ = forwardRef((props, ref) => {
 
     return ( 
         <View ref={ref} style={FAQStyles.container}>
-            <NavReturn />
             <Text style={FAQStyles.title}>
                Frequently Asked Questions
             </Text>

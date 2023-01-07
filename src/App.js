@@ -12,17 +12,14 @@ import ErrorBoundary from './Utils/ErrorBoundary';
 import Galleries from './Components/Galleries/Galleries';
 import Home from './Components/Home/Home';
 import Nav from './Components/Nav/Nav';
+import Grid from './Components/Grid';
 // import NavReturn from './Components/Nav/NavReturn';
 import About from './Components/About';
 import FAQ from './Components/FAQ';
 import Calendly from './Components/Calendly';
-import ParallaxedComponent from './Utils/parallax';
 
 import Context from './Utils/context';
 import AppStyles from './Stylesheets/AppStyles';
-import TestNav from './Components/Nav/TestNav';
-import './Stylesheets/animation-styles.css';
-import TestGallery from './Components/Galleries/TestGallery';
 import Contact from './Components/Contact/Contact';
 
 function App() {
@@ -55,7 +52,8 @@ function App() {
 					<Route
 						exact
 						path='/'
-						element={<Home />}
+						// element={<Home />}
+						element={<Grid />}
 						errorElement={<ErrorBoundary />}
 					/>
 
