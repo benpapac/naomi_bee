@@ -1,6 +1,8 @@
 import { forwardRef, useContext, useEffect, useState} from 'react';
 import { View, Pressable, Image, Text } from 'react-native-web';
 
+import '../../Animations/animation.gallery.css'
+
 
 import Gallery from './Gallery';
 
@@ -10,7 +12,7 @@ import { S3Client, ListObjectsCommand } from '@aws-sdk/client-s3';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-identity';
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 import Context from '../../Utils/context.js';
-import ImageStyles from '../../Stylesheets/ImageStyles';
+
 
 
 const Galleries = forwardRef((props, ref) => {
@@ -18,6 +20,9 @@ const Galleries = forwardRef((props, ref) => {
     const [keys, setKeys] = useState({});
     const { prefix, setPrefix } = useContext(Context);
     const [centerImage, setCenterImage] = useState('');
+    const [centerAnimation, setCenterAnimation] = useState('');
+    const [centerViewAnimation, setCenterViewAnimation] = useState('');
+    const [galleryAnimation, setGalleryAnimation] = useState('');
 
     const REGION = process.env.REACT_APP_REGION;
     const ID = process.env.REACT_APP_AWS_CRED;
@@ -29,6 +34,25 @@ const Galleries = forwardRef((props, ref) => {
             identityPoolId: ID,
         }),
     });
+
+    const handlePress = (newPrefix) => {
+        setCenterViewAnimation('gallerysqueeze 2s infinite alternate');
+        setGalleryAnimation('galleryslidedown 1.5s infinite alternate');
+
+        setTimeout(() => {
+            setPrefix(newPrefix);
+        }, 700);
+        
+        setTimeout(() => {
+            setGalleryAnimation('galleryslideup 1.5s');
+        }, 1500);
+
+        setTimeout(()=> {
+            setCenterViewAnimation('');
+        }, 2000);
+
+
+    }
 
     const getAllKeys = async() => {
             try {
@@ -68,23 +92,27 @@ const Galleries = forwardRef((props, ref) => {
         <View ref={ref} style={GalleryStyles.container}>
             <View style={GalleryStyles.buttonsContainer}>
 		
-                <Pressable onPress={()=> setPrefix('muertos/')} style={GalleryStyles.button}> 
-                    Dia de Los Muertos
+                <Pressable onPress={()=>handlePress('muertos/')} style={GalleryStyles.button}> 
+                   <Text>Dia de Los Muertos</Text>
                     </Pressable>
-                <Pressable onPress={()=> setPrefix('birthdays/')} style={GalleryStyles.button}>
-                        Birthdays
+                <Pressable onPress={()=>handlePress('birthdays/')} style={GalleryStyles.button}>
+                        <Text>Birthdays</Text>
                 </Pressable>
-                <Pressable onPress={()=> setPrefix('adults/')} style={GalleryStyles.button}>
-                        Adults too!
+                <Pressable onPress={()=>handlePress('adults/')} style={GalleryStyles.button}>
+                        <Text>Adults too!</Text>
                 </Pressable>
             </View>
         
 
-        <View style={GalleryStyles.centerImageView}>
-            <Image source={centerImage} style={GalleryStyles.centerImage} />
+        <View style={{...GalleryStyles.centerImageView, animation: centerViewAnimation}}>
+            <Image source={centerImage} style={{...GalleryStyles.centerImage, animation: centerAnimation}} />
         </View>
 
-            {keys[prefix] ? <Gallery keys={keys[prefix]} setCenterImage={setCenterImage} /> : null}
+            <Gallery keys={keys[prefix]} 
+            setCenterImage={setCenterImage} 
+            setCenterAnimation={setCenterAnimation}
+            galleryAnimation={galleryAnimation}
+            /> 
 
         </View>
         </>

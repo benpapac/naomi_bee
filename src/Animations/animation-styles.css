@@ -56,28 +56,3 @@
         display: none;
     }
 }
-
-@keyframes expand { 
-    from {
-        scale: 1;
-        z-index: 1;
-    }
-
-    to {
-        scale: 1.25;
-        z-index: 1;
-    }
-    
-}
-@keyframes shrink {
-    from {
-        scale: 1.25;
-        z-index: 1;
-    }
-
-    to {
-        scale: 1;
-        z-index: 0;
-    }
-
-}

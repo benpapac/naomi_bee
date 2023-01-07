@@ -17,8 +17,8 @@ const FAQStyles = {
 		padding: '0.3em',
 	},
 
-	odd: { backgroundColor: 'gray' },
-	even: { backgroundColor: 'white' },
+	odd: { backgroundColor: '#A3249B' },
+	even: { backgroundColor: '#D92F54' },
 	itemQ: {
 		flex: 1,
 		fontSize: '20px',

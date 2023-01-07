@@ -6,6 +6,7 @@ import HomeStyles from '../../Stylesheets/HomeStyles';
 import ImageStyles from '../../Stylesheets/ImageStyles';
 
 const HomeGallery = ({ keys }) => {
+
     const BEE_URL = process.env.REACT_APP_BEE_URL;
     const navigate = useNavigate();
 
@@ -22,23 +23,24 @@ const HomeGallery = ({ keys }) => {
     }
 
     return (
-        <View style={HomeStyles.gallery}>
+        <Pressable onPress={()=> navigate('/gallery') } style={HomeStyles.gallery}>
+            <Text style={HomeStyles.overlay}>Galleries</Text>
        { keys.map( (key, idx) => {
            return (
-               <Pressable 
-               style={ HomeStyles.pressable }
-               onPress={handlePress}
-               key={idx}
-               >
+            //    <Pressable 
+            //    style={ HomeStyles.pressable }
+            //    onPress={handlePress}
+            //    key={idx}
+            //    >
                     <Image  
                     source={{ uri:  `${BEE_URL}${key}`}} 
-                    style={HomeStyles.basicImage}
+                    style={HomeStyles.galleryImage}
                     />
                             
-                </Pressable>
+                // </Pressable>
             )})
        }
-       </View>)
+       </Pressable>)
 };
 
 export default HomeGallery;

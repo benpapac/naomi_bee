@@ -1,36 +1,17 @@
-import { forwardRef, useContext, useEffect, useState } from 'react';
-import { View, Pressable, Image, Text } from 'react-native-web';
+import { forwardRef, useEffect, useState } from 'react';
+import { View, Pressable, Image } from 'react-native-web';
 import { useNavigate } from 'react-router-dom';
 
 import HomeGallery from './HomeGallery';
-import HomeStyles from '../../Stylesheets/NavStyles';
-import ImageStyles from '../../Stylesheets/ImageStyles';
 import getAllKeys from '../../Utils/s3';
+
+import HomeStyles from '../../Stylesheets/HomeStyles';
 
 const Home = forwardRef((props, ref) => {
     let navigate = useNavigate();
        const [prefix, setPrefix] = useState('nav');
-       const links = ['about', 'faq', 'booking'];
-         const styles = ['smallRight', 'smallLeft', 'tallRight', 'tallLeft','shortRight','shortLeft'];
-    const [clicked, setClicked] = useState(false);
     const [keys, setKeys] = useState(null);
 
-
-    const [uris, setUris] = useState([
-        process.env.REACT_APP_HAMBURGER,
-        process.env.REACT_APP_BEE_URL + process.env.REACT_APP_BUTTERFLY,
-        process.env.REACT_APP_BEE_URL + process.env.REACT_APP_KID
-    ]);
-
-
-    const handlePress = (key) => {
-         for(let i = 0; i < links.length; i++){
-            if(key.includes(links[i])){
-                return ('/'+links[i]);
-            }
-        }
-        return '/';
-    }
 
    useEffect(()=>{
     console.log('sending with ', prefix)
@@ -48,7 +29,36 @@ const Home = forwardRef((props, ref) => {
 
     return (
         <View style={HomeStyles.container}>
-            {keys ? <HomeGallery keys={keys[prefix]} />  : <h1>Loading...</h1> } 
+
+        <View style={HomeStyles.column}>
+            <View style={HomeStyles.box} ></View>
+            {keys ? <HomeGallery keys={keys[prefix]} />  : <h1>Loading...</h1> }  
+            <View style={HomeStyles.box}></View>
+        </View>
+
+        <View style={HomeStyles.doubleColumn}>
+            <View style={HomeStyles.doubleBox}></View>
+            <View style={HomeStyles.tallBox}></View>
+            <View style={HomeStyles.skinnyBox}></View>
+        </View>
+
+        <View style={HomeStyles.wideColumn}> 
+            <View style={HomeStyles.tallBox}></View>
+            <View style={HomeStyles.box}></View>
+            <Pressable onPress={()=> navigate('/faq')} style={HomeStyles.pressable}>
+            <Image source={process.env.REACT_APP_FAQ} style={HomeStyles.basicImage}></Image>
+            </Pressable>
+
+        </View>
+
+        <View style={HomeStyles.column}> 
+            <View style={HomeStyles.box}></View>
+            <Pressable onPress={()=> navigate('/booking')} style={HomeStyles.pressable}>
+                <Image source={process.env.REACT_APP_BOOKING} style={HomeStyles.basicImage}></Image>
+            </Pressable>
+            <View style={HomeStyles.doubleBox}></View>
+        </View>
+
         </View>
     );
 });

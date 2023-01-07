@@ -2,13 +2,13 @@ import React, { useContext, useState, useRef } from "react";
 import { View, Pressable, Image } from 'react-native-web';
 import GalleryStyles from "../../Stylesheets/GalleryStyles";
 
-import '../../Animations/animation-styles.css';
+import '../../Animations/animation.gallery.css';
 import NavStyles from "../../Stylesheets/NavStyles";
 import Context from '../../Utils/context';
 import ImageStyles from "../../Stylesheets/ImageStyles";
 
 
-const Gallery = ({ keys, setCenterImage }) => {
+const Gallery = ({ keys, setCenterImage, setCenterAnimation, galleryAnimation }) => {
     const context = useContext(Context);
     const BEE_URL = process.env.REACT_APP_BEE_URL;
     const [styles, setStyles] = useState({});
@@ -47,7 +47,7 @@ const Gallery = ({ keys, setCenterImage }) => {
    const expandByIdx = (idx) => {
        const map = getMap();
        const node = map.get(idx);
-        node.style.animation = 'expand 0.5s';
+        node.style.animation = 'galleryexpand 0.5s';
         node.style['scale'] = 1.25;
         node.style['z-index'] = 1;
 
@@ -62,7 +62,7 @@ const Gallery = ({ keys, setCenterImage }) => {
         const map = getMap();
         const node = map.get(idx);
 
-        node.style.animation = 'shrink 0.5s';
+        node.style.animation = 'galleryshrink 0.5s';
         node.style['scale'] = 1;
         node.style['z-index'] = 0;
 
@@ -72,19 +72,31 @@ const Gallery = ({ keys, setCenterImage }) => {
         setStyles(newStyles);
    }
 
-   const handleClick = (key) => {
-    setCenterImage(BEE_URL+key)
+
+   const handlePressOut = async (key) => {
+        setCenterAnimation('galleryslideout 2s');
+       setTimeout(()=>{
+        setCenterImage(BEE_URL+key);
+        setCenterAnimation('galleryslidein 2s');
+       },600);
    } 
 
 //    try connecting the ref's style to a css file.
 
+   if(!keys) {
+       return (
+        <View style={{...GalleryStyles.gallery, animation: galleryAnimation}} className="gallery">
+        </View>
+    )
+   }
+
     return (
-        <View style={GalleryStyles.gallery} className="gallery">
+        <View style={{...GalleryStyles.gallery, animation: galleryAnimation}} className="gallery">
             {keys.map((key, idx) => {
                 return (
                         <Pressable 
                             style={ GalleryStyles.pressable }
-                            onPressOut={()=>handleClick(key)}
+                            onPressOut={()=>handlePressOut(key)}
                            
                             onMouseEnter={()=> expandByIdx(idx)}
                             onMouseLeave={() => shrinkByIdx(idx)}

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import NavStyles from '../../Stylesheets/NavStyles';
 import NavToggler from './NavToggler';
 
-import '..//../Animations/animation.nav.css';
+import '../../Animations/animation.nav.css';
 
 const Nav = () => {
     const [nav, setNav] = useState(false);

@@ -4,16 +4,26 @@ const ContactStyles = {
 		width: '100vw',
 	},
 	form: {
+		alignSelf: 'center',
 		height: '80vh',
-		width: '95vw',
+		width: 'fit-content',
+		padding: '2em',
+		maxWidth: '95vw',
 		flexDirection: 'column',
-		alignItems: 'center',
+		marginTop: 'auto',
+		alignItems: 'start',
 		justifyContent: 'center',
-		backgroundColor: 'gray',
+		backgroundColor: 'rgba(217, 47, 84,0.3)', // #D92F54
+	},
+
+	title: {
+		fontSize: '30px',
+		marginVertical: '1em',
 	},
 	input: {
-		width: '60%',
+		width: '30vw',
 		maxWidth: '300px',
+		marginVertical: '0.5em',
 		backgroundColor: 'white',
 
 		borderColor: 'black',
@@ -23,7 +33,8 @@ const ContactStyles = {
 	},
 
 	textArea: {
-		width: '60%',
+		marginVertical: '1em',
+		width: '60vw',
 		maxWidth: '600px',
 		height: '300px',
 		backgroundColor: 'white',

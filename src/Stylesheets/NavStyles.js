@@ -10,7 +10,7 @@ const NavStyles = {
 		left: '94vw',
 		top: '5vh',
 
-		animation: 'slideout 1s',
+		animation: 'navslideout 1s',
 		transform: 'translateX(200%)',
 	},
 
@@ -25,7 +25,7 @@ const NavStyles = {
 		alignItems: 'center',
 		justifyContent: 'space-around',
 
-		animation: 'slideout 2s',
+		animation: 'navslideout 2s',
 		transform: 'translateX(100%)',
 		backgroundColor: '#F2AA4F',
 	},
@@ -40,10 +40,10 @@ const NavStyles = {
 
 		alignItems: 'center',
 		justifyContent: 'space-around',
-		backgroundColor: '#F2AA4F',
+		backgroundColor: '#EE7C30',
 		paddingVertical: '5vh',
 
-		animation: 'slidein 2s',
+		animation: 'navslidein 2s',
 	},
 
 	link: {
@@ -61,7 +61,7 @@ const NavStyles = {
 		left: '94vw',
 		top: '5vh',
 
-		animation: 'slidein 2s',
+		animation: 'navslidein 2s',
 
 		alignItems: 'center',
 		justifyContent: 'center',

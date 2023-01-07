@@ -1,8 +1,8 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 import { useRef, useState } from 'react';
-import { View, Image } from 'react-native-web';
+import { View, Text } from 'react-native-web';
 import { Route, Routes } from 'react-router-dom';
 
 import '/node_modules/react-grid-layout/css/styles.css';
@@ -12,7 +12,7 @@ import ErrorBoundary from './Utils/ErrorBoundary';
 import Galleries from './Components/Galleries/Galleries';
 import Home from './Components/Home/Home';
 import Nav from './Components/Nav/Nav';
-import Grid from './Components/Grid';
+// import Grid from './Components/Grid';
 // import NavReturn from './Components/Nav/NavReturn';
 import About from './Components/About';
 import FAQ from './Components/FAQ';
@@ -46,14 +46,15 @@ function App() {
 				setPrefix: setPrefix,
 			}}>
 			<View className='App' style={AppStyles.container}>
+				<Text style={AppStyles.header}>Naomi Aeva Face Painting</Text>
 				<Nav />
 
 				<Routes>
 					<Route
 						exact
 						path='/'
-						// element={<Home />}
-						element={<Grid />}
+						element={<Home />}
+						// element={<Grid />}
 						errorElement={<ErrorBoundary />}
 					/>
 
@@ -84,10 +85,6 @@ function App() {
 						element={<Contact />}
 						errorElement={<ErrorBoundary />}></Route>
 				</Routes>
-
-				{/* <ErrorBoundary>
-					<ParallaxedComponent />
-				</ErrorBoundary> */}
 			</View>
 		</Context.Provider>
 	);

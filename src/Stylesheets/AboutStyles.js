@@ -1,5 +1,6 @@
 const AboutStyles = {
 	container: {
+		marginTop: '15vh',
 		height: 'fit-content',
 		width: '100vw',
 		flexDirection: 'column',
@@ -16,11 +17,11 @@ const AboutStyles = {
 	section: {
 		position: 'relative',
 		flexDirection: 'row',
-		height: 'fit-content',
+		height: '100vh',
 		width: '100vw',
 		alignItems: 'center',
 		justifyContent: 'space-around',
-		paddingVertical: '20%',
+		// paddingVertical: '20%',
 		backgroundColor: 'rgba(244,244,244,0.3)',
 	},
 

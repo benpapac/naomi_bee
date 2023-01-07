@@ -56,6 +56,7 @@ import '../../Stylesheets/forms.css';
 			</>
 			: 
 			<View style={ContactStyles.form}>
+				<Text style={ContactStyles.title}>Send Naomi a message</Text>
             <label className='label'>Name</label>
 				<TextInput style={ContactStyles.input} onChangeText={onNameChange} value={name} placeholder='Naomi' name='name' />
 				<label className='label'>Email</label>

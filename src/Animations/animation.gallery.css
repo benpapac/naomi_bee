@@ -1,0 +1,80 @@
+@keyframes galleryslidein {
+    from {
+        transform: translateX(200%);
+    }
+
+    to {
+        transform: translateX(0);
+    }  
+} 
+
+@keyframes galleryslideout {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+@keyframes galleryexpand {
+    from {
+        scale: 1;
+        z-index: 1;
+    }
+
+    to {
+        scale: 1.25;
+        z-index: 1;
+    }
+
+}
+
+@keyframes galleryshrink {
+    from {
+        scale: 1.25;
+        z-index: 1;
+    }
+
+    to {
+        scale: 1;
+        z-index: 0;
+    }
+}
+
+@keyframes gallerysqueeze {
+    from {
+        width: 30vw
+    }
+
+    50% {
+        width: 1vw
+    }
+
+    to {
+        width: 30vw
+    }
+}
+
+@keyframes galleryslidedown {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(200%)
+    }
+}
+
+@keyframes galleryslideup {
+
+    from {
+        transform: translateY(200%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+
+}
