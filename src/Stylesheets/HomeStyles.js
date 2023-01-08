@@ -15,6 +15,13 @@ const HomeStyles = {
 
 		// animation: '3s alternate rotate',
 	},
+
+	slides: {
+		height:'100%',
+		width: 'fit-content',
+		flexDirection: 'row',
+		transition: 'ease 1s',
+	},
 	gallery: {
 		flex: 2,
 		margin: '1em',
@@ -65,6 +72,11 @@ const HomeStyles = {
 		backgroundColor: 'aliceblue',
 		borderWidth: '1px',
 		borderColor: 'white',
+
+		alignItems: 'start',
+		justifyContent: 'center',
+
+		overflow: 'hidden',
 	},
 
 	doubleBox: {

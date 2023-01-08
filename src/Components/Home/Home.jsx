@@ -6,6 +6,9 @@ import HomeGallery from './HomeGallery';
 import getAllKeys from '../../Utils/s3';
 
 import HomeStyles from '../../Stylesheets/HomeStyles';
+import '../../Animations/animation.home.css';
+
+import Slides from './HomeSlides';
 
 const Home = forwardRef((props, ref) => {
     let navigate = useNavigate();
@@ -43,7 +46,7 @@ const Home = forwardRef((props, ref) => {
         </View>
 
         <View style={HomeStyles.wideColumn}> 
-            <View style={HomeStyles.tallBox}></View>
+            <Slides />
             <View style={HomeStyles.box}></View>
             <Pressable onPress={()=> navigate('/faq')} style={HomeStyles.pressable}>
             <Image source={process.env.REACT_APP_FAQ} style={HomeStyles.basicImage}></Image>

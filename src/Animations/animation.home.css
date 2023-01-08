@@ -1,0 +1,88 @@
+@keyframes homeslideout {
+    from {
+        transform: translateX(0);
+
+    }
+
+    50% {
+        transform: translateX(-120%);
+    }
+
+    to {
+        transform: translateX(-120%)
+    }
+}
+
+@keyframes homeslidein {
+    from {
+        transform: translate(-10%);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes homeslideleft {
+    from {
+        tranform: translateX(0);
+    } 
+    to {
+        tranform: translateX(-100%);
+    }
+} 
+
+@keyframes home-five-to-four {
+    from {
+        transform: translateX(50%)
+    }
+    to {
+        transform: translateX(40%)
+    }
+}
+@keyframes home-four-to-three {
+    from {
+        transform: translateX(40%)
+    }
+
+    to {
+        transform: translateX(30%)
+    }
+}
+@keyframes home-three-to-two {
+    from {
+        transform: translateX(30%)
+    }
+
+    to {
+        transform: translateX(20%)
+    }
+}
+@keyframes home-two-to-one {
+    from {
+        transform: translateX(20%)
+    }
+
+    to {
+        transform: translateX(10%)
+    }
+}
+@keyframes home-one-to-zero {
+    from {
+        transform: translateX(10%)
+    }
+
+    to {
+        transform: translateX(0%)
+    }
+}
+
+@keyframes home-zero-to-one {
+    from {
+        transform: translateX()
+    }
+}
