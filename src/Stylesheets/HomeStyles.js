@@ -2,25 +2,22 @@ const HomeStyles = {
 	container: {
 		marginTop: '15vh',
 		height: '85vh',
-		width: '100vw', // the number of columns you want to devide the screen into
+		width: '100vw',
 		marginHorizontal: 'auto',
 
-		// display: 'flex',
 		flexDirection: 'row',
 		flexWrap: 'wrap',
 		alignItems: 'center',
 		justifyContent: 'space-around',
 
 		paddingHorizontal: '2em',
-
-		// animation: '3s alternate rotate',
 	},
 
 	slides: {
-		height:'100%',
+		height: '90%',
 		width: 'fit-content',
 		flexDirection: 'row',
-		transition: 'ease 1s',
+		transition: 'ease 2s',
 	},
 	gallery: {
 		flex: 2,
@@ -69,10 +66,6 @@ const HomeStyles = {
 		flex: 1.5,
 		margin: '1em',
 
-		backgroundColor: 'aliceblue',
-		borderWidth: '1px',
-		borderColor: 'white',
-
 		alignItems: 'start',
 		justifyContent: 'center',
 
@@ -86,6 +79,11 @@ const HomeStyles = {
 		backgroundColor: 'brown',
 		borderWidth: '1px',
 		borderColor: 'white',
+
+		flexDirection: 'row',
+		overflow: 'hidden',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 
 	column: {

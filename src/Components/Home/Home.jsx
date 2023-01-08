@@ -3,12 +3,13 @@ import { View, Pressable, Image } from 'react-native-web';
 import { useNavigate } from 'react-router-dom';
 
 import HomeGallery from './HomeGallery';
+import Slides from './HomeSlides';
+import HomeRotator from './HomeRotator';
 import getAllKeys from '../../Utils/s3';
 
 import HomeStyles from '../../Stylesheets/HomeStyles';
 import '../../Animations/animation.home.css';
 
-import Slides from './HomeSlides';
 
 const Home = forwardRef((props, ref) => {
     let navigate = useNavigate();
@@ -59,7 +60,7 @@ const Home = forwardRef((props, ref) => {
             <Pressable onPress={()=> navigate('/booking')} style={HomeStyles.pressable}>
                 <Image source={process.env.REACT_APP_BOOKING} style={HomeStyles.basicImage}></Image>
             </Pressable>
-            <View style={HomeStyles.doubleBox}></View>
+                <HomeRotator />
         </View>
 
         </View>

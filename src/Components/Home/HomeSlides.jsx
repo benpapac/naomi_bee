@@ -58,7 +58,7 @@ const HomeSlides = () => {
                             borderColor: 'gray',
                             borderRadius: '1em',
                             height: '100%',
-                            width: '10vw',
+                            width: '20vw',
                             overflow: 'hidden',
                         }}>
                         <Image source={process.env.REACT_APP_BEE_URL+key}
