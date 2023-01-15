@@ -3,8 +3,9 @@ const GalleryStyles = {
 		display: 'flex',
 		flexDirection: 'column',
 		marginTop: '15vh',
+		height: '85vh',
 		width: '100vw',
-		backgroundColor: '#F2AA4F',
+		// backgroundColor: '#F2AA4F',
 
 		// backgroundColor: 'black',
 	},
@@ -16,7 +17,7 @@ const GalleryStyles = {
 		// borderRadius: '0.3em',
 	},
 	buttonsContainer: {
-		height: '20%',
+		height: '10%',
 		width: '100%',
 		display: 'flex',
 		flexDirection: 'row',
@@ -26,48 +27,44 @@ const GalleryStyles = {
 		color: 'smokewhite',
 	},
 
-	centerImageView: {
-		marginHorizontal: 'auto',
-		height: '30vw',
-		width: '30vw',
-		// aspectRatio: 1,
-		flexDirection: 'row',
-		borderWidth: '0.5em',
-		borderColor: 'white',
-		boxShadow: '10px 10px 10px black',
-		overflow: 'hidden',
-	},
-
-	centerImage: {
-		alignSelf: 'center',
-		width: '100%',
-		height: '100%',
-		flex: 1,
-
-		resizeMode: 'cover',
-	},
 	gallery: {
-		marginTop: '1em',
+		marginTop: '0.1em',
 		alignSelf: 'center',
 		width: '95vw',
-		height: '15vh',
+		height: 'fit-content',
 		display: 'flex',
 		flexDirection: 'row',
 		flexWrap: 'wrap',
 		alignItems: 'center',
 		justifyContent: 'center',
-		// backgroundColor: 'gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8))',
 
-		// overflow: 'hidden',
+		padding: '0.5em',
+		backgroundColor: 'white',
+		// backgroundColor: 'gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8))',
+	},
+
+	slideBox: {
+		alignSelf: 'center',
+		width: '40vw',
+		height: '60vh',
+		overflow: 'hidden',
+	},
+
+	slides: {
+		height: '100%',
+		width: 'fit-content',
+		flexDirection: 'row',
+		transition: 'ease 2s',
 	},
 
 	pressable: {
 		flexGrow: 1,
-		height: '100%',
+		height: 'fit-content',
 		width: 'fit-content',
-		transition: 'ease ',
 		resizeMode: 'contain',
+		transition: 'ease 0.3s',
 	},
+	basicImage: { height: '', width: '', aspectRatio: 1, borderRadius: '1em' },
 };
 
 export default GalleryStyles;

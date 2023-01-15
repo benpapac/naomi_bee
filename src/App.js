@@ -30,6 +30,8 @@ function App() {
 	const faqRef = useRef(null);
 
 	const [prefix, setPrefix] = useState('birthdays');
+	const [transform, setTransform] = useState(0);
+	const [activeUser, setActiveUser] = useState(false);
 
 	// I would love to refactor refs in a programmatic way.
 	// https://beta.reactjs.org/learn/manipulating-the-dom-with-refs#:~:text=DEEP-,DIVE,-How%20to%20manage
@@ -44,6 +46,10 @@ function App() {
 				faqRef: faqRef,
 				prefix: prefix,
 				setPrefix: setPrefix,
+				transform: transform,
+				setTransform: setTransform,
+				activeUser: activeUser,
+				setActiveUser: setActiveUser,
 			}}>
 			<View className='App' style={AppStyles.container}>
 				<Text style={AppStyles.header}>Naomi Aeva Face Painting</Text>

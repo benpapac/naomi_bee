@@ -4,14 +4,14 @@ const AppStyles = {
 		height: 'fit-content',
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: '#F2AA4F',
+		// backgroundColor: '#F2AA4F',
 	},
 
 	header: {
 		zIndex: 1,
 		position: 'fixed',
 		padding: '1em',
-		backgroundColor: '#F2AA4F',
+		// backgroundColor: '#F2AA4F',
 
 		width: '100vw',
 		top: '0',

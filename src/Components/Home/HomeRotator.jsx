@@ -19,7 +19,7 @@ const HomeRotator = () => {
         let newZs = zIndeces.slice(1).concat(zIndeces[0]);
         setZindeces(newZs);
 
-        setTimeout(()=>setTicker(!ticker), 3000);
+        setTimeout(()=>setTicker(!ticker), 8000);
     },[ticker]);
 
     return (

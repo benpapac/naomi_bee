@@ -17,12 +17,12 @@ const FAQStyles = {
 		padding: '0.3em',
 	},
 
-	odd: { backgroundColor: '#A3249B' },
-	even: { backgroundColor: '#D92F54' },
+	odd: { backgroundColor: 'white' },
+	even: { backgroundColor: 'gray' },
 	itemQ: {
 		flex: 1,
 		fontSize: '20px',
-		color: 'darkgray',
+		color: '#D92F54',
 	},
 	itemA: {
 		minHeight: '20px',
@@ -31,12 +31,14 @@ const FAQStyles = {
 	false: {
 		display: 'none',
 		animation: 'slideup 1s',
+		transition: 'ease 1s',
 	},
 
 	true: {
 		flex: 1,
 		fontSize: '18px',
 		animation: 'slidedown 1s',
+		color: '#A3249B',
 	},
 };
 

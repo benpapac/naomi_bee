@@ -17,7 +17,7 @@ const HomeStyles = {
 		height: '90%',
 		width: 'fit-content',
 		flexDirection: 'row',
-		transition: 'ease 2s',
+		transition: 'ease 3s',
 	},
 	gallery: {
 		flex: 2,
@@ -39,10 +39,27 @@ const HomeStyles = {
 		width: '100%',
 
 		textAlign: 'center',
-		paddingVertical: '35%',
+		paddingVertical: '25%',
 		fontSize: '40px',
 		fontWeight: '800',
 		backgroundColor: 'rgba(244,244,244,0.4)',
+		animation: 'homeslideup 2s',
+	},
+
+	hiddenOverlay: {
+		position: 'absolute',
+		zIndex: 1,
+
+		height: '100%',
+		width: '100%',
+
+		textAlign: 'center',
+		paddingVertical: '25%',
+		fontSize: '40px',
+		fontWeight: '800',
+		backgroundColor: 'rgba(244,244,244,0.4)',
+		transform: 'translateY(200%)',
+		animation: 'homeslidedown 2s',
 	},
 
 	skinnyBox: {
@@ -108,6 +125,8 @@ const HomeStyles = {
 		height: '100%',
 		width: '100%',
 	},
+	title: { fontSize: '30px' },
+	p: { height: '90%', width: '90%', fontSize: '14px' },
 	basicImage: { flex: 1, margin: '1em', resizeMode: 'contain' },
 	galleryImage: { height: '25%', width: '', resizeMode: 'cover' },
 };

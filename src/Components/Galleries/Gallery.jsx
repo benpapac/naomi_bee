@@ -1,5 +1,5 @@
-import React, { useContext, useState, useRef } from "react";
-import { View, Pressable, Image } from 'react-native-web';
+import React, { useContext, useEffect, useState, useRef } from "react";
+import { View, Pressable, Image, Text } from 'react-native-web';
 import GalleryStyles from "../../Stylesheets/GalleryStyles";
 
 import '../../Animations/animation.gallery.css';
@@ -8,12 +8,10 @@ import Context from '../../Utils/context';
 import ImageStyles from "../../Stylesheets/ImageStyles";
 
 
-const Gallery = ({ keys, setCenterImage, setCenterAnimation, galleryAnimation }) => {
-    const context = useContext(Context);
+const Gallery = ({ imageKeys, galleryAnimation }) => {
+    const {setTransform, setActiveUser} = useContext(Context);
     const BEE_URL = process.env.REACT_APP_BEE_URL;
     const [styles, setStyles] = useState({});
-       const refIds = ['about', 'faq','booking'];
-       const prefixes = ['muertos', 'adults', 'birthdays'];
 
 
     const imagesRef = useRef(null);
@@ -25,29 +23,11 @@ const Gallery = ({ keys, setCenterImage, setCenterAnimation, galleryAnimation })
          return imagesRef.current;
     }
 
-    const getPrefix = (key) => {
-        for(let i = 0; i < prefixes.length; i++){
-            if(key.includes(prefixes[i])){
-                return (prefixes[i]);
-            }
-        }
-        return '';
-    }
-
-    const getRefId = (key) => {
-         for(let i = 0; i < refIds.length; i++){
-            if(key.includes(refIds[i])){
-                return (refIds[i]+'Ref');
-            }
-        }
-        return '';
-    }
-
 
    const expandByIdx = (idx) => {
        const map = getMap();
        const node = map.get(idx);
-        node.style.animation = 'galleryexpand 0.5s';
+        // node.style.animation = 'galleryexpand 0.5s';
         node.style['scale'] = 1.25;
         node.style['z-index'] = 1;
 
@@ -62,7 +42,7 @@ const Gallery = ({ keys, setCenterImage, setCenterAnimation, galleryAnimation })
         const map = getMap();
         const node = map.get(idx);
 
-        node.style.animation = 'galleryshrink 0.5s';
+        // node.style.animation = 'galleryshrink 0.5s';
         node.style['scale'] = 1;
         node.style['z-index'] = 0;
 
@@ -73,17 +53,18 @@ const Gallery = ({ keys, setCenterImage, setCenterAnimation, galleryAnimation })
    }
 
 
-   const handlePressOut = async (key) => {
-        setCenterAnimation('galleryslideout 2s');
-       setTimeout(()=>{
-        setCenterImage(BEE_URL+key);
-        setCenterAnimation('galleryslidein 2s');
-       },600);
+   const handlePressOut = async (idx) => {
+        setTransform( 100 / imageKeys.length * idx );
+        setActiveUser(true);
    } 
 
 //    try connecting the ref's style to a css file.
 
-   if(!keys) {
+useEffect(()=>{
+   console.log(imageKeys);
+},[]);
+
+   if(!imageKeys) {
        return (
         <View style={{...GalleryStyles.gallery, animation: galleryAnimation}} className="gallery">
         </View>
@@ -92,11 +73,11 @@ const Gallery = ({ keys, setCenterImage, setCenterAnimation, galleryAnimation })
 
     return (
         <View style={{...GalleryStyles.gallery, animation: galleryAnimation}} className="gallery">
-            {keys.map((key, idx) => {
+            {imageKeys.map((key, idx) => {
                 return (
                         <Pressable 
                             style={ GalleryStyles.pressable }
-                            onPressOut={()=>handlePressOut(key)}
+                            onPressOut={()=>handlePressOut(idx)}
                            
                             onMouseEnter={()=> expandByIdx(idx)}
                             onMouseLeave={() => shrinkByIdx(idx)}
@@ -113,7 +94,7 @@ const Gallery = ({ keys, setCenterImage, setCenterAnimation, galleryAnimation })
 
                             <Image  
                             source={{ uri:  `${BEE_URL}${key}`}} 
-                            style={ImageStyles.basicImage}
+                            style={GalleryStyles.basicImage}
                             />
                             
                         </Pressable>
