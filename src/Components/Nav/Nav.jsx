@@ -22,17 +22,15 @@ const Nav = () => {
 
     return (
         <>
+            <NavToggler nav={nav} setNav={setNav} />
             <View style={NavStyles[containerStyle]}>
-                <NavToggler nav={nav} setNav={setNav} />
                 <NavLink style={NavStyles.link} onClick={ ()=> setNav(false) } to='/'>Home</NavLink>
                 <NavLink style={NavStyles.link} onClick={ ()=> setNav(false) } to='/about'>About</NavLink>
                 <NavLink style={NavStyles.link} onClick={ ()=> setNav(false) } to='/faq'>FAQ</NavLink>
                 <NavLink style={NavStyles.link} onClick={ ()=> setNav(false) } to='/gallery'>Galleries</NavLink>
                 <NavLink style={NavStyles.link} onClick={ ()=> setNav(false) } to='/booking'>Bookings</NavLink>
                 <NavLink style={NavStyles.link} onClick={ ()=> setNav(false) } to='/contact'>Contact</NavLink>
-        <NavToggler nav={nav} setNav={setNav} />
             </View> 
-        <NavToggler nav={nav} setNav={setNav} />
     </>
     );
 };

@@ -54,7 +54,7 @@ const GalleryStyles = {
 		height: '100%',
 		width: 'fit-content',
 		flexDirection: 'row',
-		transition: 'ease 2s',
+		transition: 'ease 4s',
 	},
 
 	pressable: {

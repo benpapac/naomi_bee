@@ -2,40 +2,33 @@ let baseDim = window.innerWidth < window.innerHeight ? 'vw' : 'vh';
 let imageWidth = window.innerWidth < window.innerHeight ? '100%' : '90%';
 
 const NavStyles = {
-	hiddenToggler: {
-		zIndex: 1,
-		position: 'fixed',
-		width: '64px',
-		height: '64px',
-		left: '94vw',
-		top: '5vh',
-
-		animation: 'navslideout 1s',
-		transform: 'translateX(200%)',
-	},
-
 	hiddenContainer: {
 		zIndex: 1,
 		position: 'fixed',
 		paddingVertical: '5vh',
 
 		top: 0,
+		right: 0,
 		height: '100vh',
-		width: '100vw',
+		width: '20vw',
 		alignItems: 'center',
 		justifyContent: 'space-around',
 
 		animation: 'navslideout 2s',
-		transform: 'translateX(100%)',
+		transform: 'translateX(200%)',
 		backgroundColor: '#F2AA4F',
+
+		transition: 'ease 2s',
 	},
 
 	container: {
 		zIndex: 1,
 		position: 'fixed',
 		top: 0,
+		right: 0,
+
 		height: '100vh',
-		width: '100vw',
+		width: '20vw',
 		marginHorizontal: 'auto',
 
 		alignItems: 'center',
@@ -43,7 +36,7 @@ const NavStyles = {
 		backgroundColor: '#EE7C30',
 		paddingVertical: '5vh',
 
-		animation: 'navslidein 2s',
+		transition: 'ease 2s',
 	},
 
 	link: {
@@ -53,7 +46,7 @@ const NavStyles = {
 		color: 'black',
 	},
 
-	navToggler: {
+	hiddenToggler: {
 		zIndex: 1,
 		position: 'fixed',
 		width: '64px',
@@ -61,13 +54,27 @@ const NavStyles = {
 		left: '94vw',
 		top: '5vh',
 
-		animation: 'navslidein 2s',
+		alignItems: 'center',
+		justifyContent: 'center',
+
+		transform: 'translateX(200%)',
+		transition: 'ease 1s',
+	},
+	toggler: {
+		zIndex: 2,
+		position: 'fixed',
+		width: '64px',
+		height: '64px',
+		left: '94vw',
+		top: '5vh',
 
 		alignItems: 'center',
 		justifyContent: 'center',
 		borderRadius: '100%',
+
+		transition: 'ease 1.5s',
 	},
-	navReturnImage: {
+	navTogglerImage: {
 		width: '5vw',
 		height: '6vh',
 	},
@@ -80,37 +87,6 @@ const NavStyles = {
 		height: '16%',
 		width: '100%',
 		borderBottom: '1px solid black',
-	},
-
-	hiddenText: {
-		alignSelf: 'center',
-		justifyContent: 'center',
-		position: 'absolute',
-		zIndex: 1,
-		width: imageWidth,
-		height: '100%',
-		paddingTop: '8vw',
-		textAlign: 'center',
-		justifyText: 'center',
-		fontSize: '20px',
-		backgroundColor: 'rgba(255,255,255,0.4)',
-		transform: 'translateY(-100%)',
-		animation: 'slide-down 0.6s',
-	},
-
-	visibleText: {
-		alignSelf: 'center',
-		justifyContent: 'center',
-		position: 'absolute',
-		zIndex: 1,
-		width: imageWidth,
-		height: '100%',
-		paddingTop: '8vw',
-		textAlign: 'center',
-		justifyText: 'center',
-		fontSize: '20px',
-		backgroundColor: 'rgba(255,255,255,0.4)',
-		animation: 'slide-up 0.6s',
 	},
 };
 
